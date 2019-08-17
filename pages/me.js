@@ -84,7 +84,7 @@ export default class extends React.Component {
   render() {
     const {blogDtail,detailData,commentsList,loadings,saytext,commentTotal} = this.state
     return (
-      <Layout>
+      <Layout title={`关于`}>
           <div style={{background:"#fff",padding: "0 12px",marginBottom: 20}}>
             <div dangerouslySetInnerHTML={{__html: blogDtail}} className="markdown-body editormd-preview-container" previewcontainer="true" style={{width:"auto"}}></div>
           </div>

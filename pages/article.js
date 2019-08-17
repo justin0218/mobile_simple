@@ -38,7 +38,7 @@ export default class extends React.Component {
   render() {
     let {blogList,leftHeight} = this.state;
     return (
-      <Layout>
+      <Layout title={`文章`}>
         {
           blogList.map((item,k)=>(
             <div className="right_item" key={k} onClick={()=>{

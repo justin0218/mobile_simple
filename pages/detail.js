@@ -54,6 +54,7 @@ export default class extends React.Component {
         document.getElementById("t").setAttribute("class","shadownone")
         document.getElementById("loading").style.display = "none";
       },500)
+      
   }
 
   async subMitComment(){
@@ -90,8 +91,9 @@ export default class extends React.Component {
 
   render() {
     const {blogDtail,detailData,commentsList,submitDisb,submitTxt,saytext,commentTotal} = this.state
+    
     return (
-      <Layout>
+      <Layout title={detailData.name}>
           <div style={{background:"#fff",padding: "0 12px"}}>
             <h3 className="news_title">{detailData.name}</h3>
             <div className="bloginfo">

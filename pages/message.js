@@ -74,7 +74,7 @@ export default class extends React.Component {
   render() {
     const {blogDtail,detailData,commentsList,submitDisb,saytext,commentTotal,submitTxt} = this.state
     return (
-      <Layout>
+      <Layout title={`留言`}>
           <div style={{background:"#fff"}}> 
             <div style={{clear:'both'}}></div>
             <div className="news_pl">
