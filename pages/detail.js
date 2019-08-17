@@ -50,6 +50,10 @@ export default class extends React.Component {
       hdata = hmessage.toObject();
       await this.getComments();
       this.setState({blogDtail:hdata.txt,detailData:data})
+      setTimeout(()=>{
+        document.getElementById("t").setAttribute("class","shadownone")
+        document.getElementById("loading").style.display = "none";
+      },500)
   }
 
   async subMitComment(){
@@ -88,7 +92,7 @@ export default class extends React.Component {
     const {blogDtail,detailData,commentsList,submitDisb,submitTxt,saytext,commentTotal} = this.state
     return (
       <Layout>
-          <div style={{background:"#fff",padding: "0 30px"}}>
+          <div style={{background:"#fff",padding: "0 12px"}}>
             <h3 className="news_title">{detailData.name}</h3>
             <div className="bloginfo">
               <ul>
@@ -102,7 +106,7 @@ export default class extends React.Component {
             <div className="news_about">
               <strong>简介</strong> {detailData.preface}
             </div>
-            <div dangerouslySetInnerHTML={{__html: blogDtail}} className="markdown-body editormd-preview-container" previewcontainer="true" style={{width:"auto"}}></div>
+            <div dangerouslySetInnerHTML={{__html: blogDtail}} className="markdown-body editormd-preview-container" previewcontainer="true" style={{width:"auto",padding:0}}></div>
             <div className="share" style={{padding: "20px"}}>
              <button className="diggit" onClick={this.makeGood.bind(this)}>
                <a>很赞哦！</a>(<b>{detailData.goodNum}</b>)
@@ -170,9 +174,10 @@ export default class extends React.Component {
             margin-right: 1%;
           }
           #saytext {
-              width: 618px;
+              width: 99%;
               outline: none;
               resize: none;
+              border: solid 1px;
           }
           .saying span {
                 float: right;

@@ -29,6 +29,10 @@ export default class extends React.Component {
 
   async componentDidMount(){
     await this.loadList(-1)
+    setTimeout(()=>{
+      document.getElementById("t").setAttribute("class","shadownone")
+      document.getElementById("loading").style.display = "none";
+    },500)
   }
 
   render() {
@@ -37,11 +41,11 @@ export default class extends React.Component {
       <Layout>
         {
           blogList.map((item,k)=>(
-            <div className="right_item" key={k}>
-              {item.cover && <i><img className="coverimg" src={item.cover} /></i>}
-              <h3>{item.recommended == 1 && "[ 顶 ]"} <span style={{color:"#222"}} onClick={()=>{
-                location.href = `/detail?id=${item.id}`
-              }} className="blogname">{item.name}</span></h3>
+            <div className="right_item" key={k} onClick={()=>{
+              location.href = `/detail?id=${item.id}`
+            }}>
+              <img className="coverimg" src={item.cover} />
+              <h3>{item.recommended == 1 && "[ 顶 ]"} <span style={{color:"#222"}} className="blogname">{item.name}</span></h3>
               <p>{item.preface}</p>
             </div>
           ))
@@ -53,17 +57,12 @@ export default class extends React.Component {
             color: #555;
           }
           .coverimg{
-            float: right;
-            clear: right;
             width: 100%;
             -webkit-transition: all 0.5s;
             -moz-transition: all 0.5s;
             transition: all 0.5s;
             cursor: pointer;
-          }
-          .coverimg:hover{
-            transform: scale(1.2);
-            -webkit-transform: scale(1.2);
+            margin-bottom: 20px;
           }
           .right_item p {
             margin: 20px 0 0 0;
@@ -98,8 +97,7 @@ export default class extends React.Component {
             cursor: pointer;
           }
         `}</style>
-      </Layout>    
-        
+      </Layout>      
     )
   }
 }

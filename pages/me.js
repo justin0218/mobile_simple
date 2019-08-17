@@ -43,6 +43,10 @@ export default class extends React.Component {
       let hmessage = protobuf.fileReadRes.deserializeBinary(hdata);
       hdata = hmessage.toObject();
       this.setState({blogDtail:hdata.txt})
+      setTimeout(()=>{
+        document.getElementById("t").setAttribute("class","shadownone")
+        document.getElementById("loading").style.display = "none";
+      },500)
   }
 
   async subMitComment(){
@@ -81,7 +85,7 @@ export default class extends React.Component {
     const {blogDtail,detailData,commentsList,loadings,saytext,commentTotal} = this.state
     return (
       <Layout>
-          <div style={{background:"#fff",padding: "0 15px",marginBottom: 20}}>
+          <div style={{background:"#fff",padding: "0 12px",marginBottom: 20}}>
             <div dangerouslySetInnerHTML={{__html: blogDtail}} className="markdown-body editormd-preview-container" previewcontainer="true" style={{width:"auto"}}></div>
           </div>
           <style jsx>{`

@@ -1,27 +1,45 @@
 {
-  "devFiles": [
-    "static/development/dll/dll_f1e0f678a3d57bf02d93.js"
-  ],
+  "devFiles": [],
   "pages": {
-    "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+    "/article": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/detail": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
+    ],
+    "/me": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
+    ],
+    "/message": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-838b392324e3598684b5.js",
+      "static/chunks/commons.a92fed885de337c107f2.js",
+      "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ]
   }
 }

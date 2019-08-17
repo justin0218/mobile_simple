@@ -35,6 +35,10 @@ export default class extends React.Component {
 
   async componentDidMount(){
     await this.getComments();
+    setTimeout(()=>{
+      document.getElementById("t").setAttribute("class","shadownone")
+      document.getElementById("loading").style.display = "none";
+    },500)
   }
 
   async subMitComment(){
@@ -71,7 +75,7 @@ export default class extends React.Component {
     const {blogDtail,detailData,commentsList,submitDisb,saytext,commentTotal,submitTxt} = this.state
     return (
       <Layout>
-          <div style={{background:"#fff",padding: "0 30px"}}> 
+          <div style={{background:"#fff"}}> 
             <div style={{clear:'both'}}></div>
             <div className="news_pl">
                 <div className="gbko">
@@ -111,6 +115,9 @@ export default class extends React.Component {
           .yzm {
               margin: 10px 10px 10px 0;
           }
+          #plpost{
+            padding: 0 10px;
+          }
           #plpost input[type="submit"] {
             display: block;
             background: #303030;
@@ -125,9 +132,10 @@ export default class extends React.Component {
             margin-right: 1%;
           }
           #saytext {
-              width: 618px;
+              width: 99%;
               outline: none;
               resize: none;
+              border: solid 1px;
           }
           .saying span {
                 float: right;
