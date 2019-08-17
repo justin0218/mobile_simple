@@ -5,10 +5,10 @@ import {Button,Input} from 'antd'
 import Left from '../components/left'
 import Nav from '../components/nav'
 import Loading from '../common/loading'
-export default ({ children, title = 'simple' }) => (
+export default ({ children, title = '' }) => (
   <div>
     <Head>
-      <title>{ title }</title>
+      <title>Simple-{ title }</title>
       <meta charSet='utf-8' />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover" />      
       <link rel="stylesheet" href="/static/css/editormd.min.css" />
