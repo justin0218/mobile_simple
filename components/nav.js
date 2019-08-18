@@ -21,8 +21,11 @@ export default class extends React.Component {
       document.onscroll = () => {
         var p = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;      
         if(t<=p && p > 0){//下滚
-          Event.emit("top",1) 
-          this.setState({headerTop:-61,opennav:false,searchTxt:"",opensearch:false})
+          Event.emit("top",1)
+          if(p > 60){
+            this.setState({headerTop:-61})
+          } 
+          this.setState({opennav:false,searchTxt:"",opensearch:false})
         }else{//上滚  
           Event.emit("top",2) 
           this.setState({headerTop:0,opennav:false,searchTxt:"",opensearch:false})

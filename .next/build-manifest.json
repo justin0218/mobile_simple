@@ -3,42 +3,42 @@
   "pages": {
     "/article": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/detail": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/index": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/me": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/message": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/_app": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/_error": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ],
     "/": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.c123bdcb6019fd63ed43.js",
+      "static/chunks/commons.bbc987da23f17dbc9017.js",
       "static/runtime/main-c98415a5aea6e3a4ea1b.js"
     ]
   }
