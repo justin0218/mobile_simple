@@ -41,26 +41,33 @@ export default class extends React.Component {
     },500)
   }
 
-  async subMitComment(){
-    const {saytext,submitDisb,submitTxt} = this.state;
-    this.setState({submitDisb:true,submitTxt:"提交中"})
-    let message = new protobuf.blogComment();
+  async subMitComment(event){
+    var e = event || window.event;
+    if (e && e.keyCode == 13) { //回车键的键值为13
+      let {saytext} = this.state;
+      saytext = saytext.replace(/\n/g,"")
+      if(saytext == ""){
+        alert("评论内容不能为空")
+        return
+      }
+      let message = new protobuf.blogComment();
         message.setContent(saytext);
         message.setBlogId(0);
-    let bytes = message.serializeBinary();
-    try {
-      let res = await axios.post(`${apiHost}/v1/blog/messageboard/submit`,bytes,{headers: {'Content-Type':'application/octet-stream'}})
-      await this.getComments();
-    } catch (error) {
-      if(error == "Error: Request failed with status code 400"){
-        alert("评论内容不能为空")
-      }else if(error == "Error: Request failed with status code 500"){
-        alert("内部出现错误")
-      }else if(error == "Error: Request failed with status code 403"){
-        alert("今天您对改博客的评论已达到上限")
+      let bytes = message.serializeBinary();
+      try {
+        let res = await axios.post(`${apiHost}/v1/blog/messageboard/submit`,bytes,{headers: {'Content-Type':'application/octet-stream'}})
+        await this.getComments();
+      } catch (error) {
+        if(error == "Error: Request failed with status code 400"){
+          alert("评论内容不能为空")
+        }else if(error == "Error: Request failed with status code 500"){
+          alert("内部出现错误")
+        }else if(error == "Error: Request failed with status code 403"){
+          alert("今天您对改博客的评论已达到上限")
+        }
       }
+      this.setState({saytext:""})
     }
-    this.setState({submitDisb:false,submitTxt:"提交",saytext:""})
   }
 
   async makeGood(){
@@ -97,8 +104,7 @@ export default class extends React.Component {
                     </p>
                     <textarea name="saytext" value={saytext} onChange={(e)=>{
                       this.setState({saytext:e.target.value})
-                    }} rows="6" id="saytext"></textarea>
-                    <input name="imageField" type="submit" onClick={this.subMitComment.bind(this)} disabled={submitDisb} value={submitTxt} style={{outline: "none",cursor: "pointer"}} />
+                    }} rows="6" id="saytext" onKeyUp={this.subMitComment.bind(this)}></textarea>
                   </div>
                 </div>
             </div>
@@ -135,7 +141,8 @@ export default class extends React.Component {
               width: 99%;
               outline: none;
               resize: none;
-              border: solid 1px;
+              border: solid 1px #ccc;
+              margin-bottom: 20px;
           }
           .saying span {
                 float: right;
