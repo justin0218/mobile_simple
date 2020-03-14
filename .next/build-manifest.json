@@ -3,47 +3,47 @@
   "pages": {
     "/article": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/detail": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/index": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/live": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/me": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/message": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/_app": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/_error": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ],
     "/": [
       "static/runtime/webpack-838b392324e3598684b5.js",
-      "static/chunks/commons.8330589bc0f8dcaed210.js",
+      "static/chunks/commons.b7d1fbb45fe39458f88f.js",
       "static/runtime/main-a1bc0368449efa9163de.js"
     ]
   }

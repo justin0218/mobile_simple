@@ -17,9 +17,9 @@ export default class extends React.Component {
   }
 
   async componentDidMount(){
-    const player2 = new FlvJsPlayer({
+    const player2 = new HlsJsPlayer({
       id: 'vs2',
-      url: 'http://140.143.188.219:7001/live/movie.flv',
+      url: 'http://140.143.188.219:7002/live/movie.m3u8',
       fluid: true,
       playsinline: true,
       autoplay: true,
