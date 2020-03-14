@@ -23,8 +23,8 @@ export default class extends React.Component {
       fluid: true,
       playsinline: true,
       autoplay: true,
-      videoInit: true,
-      controls: false
+      videoInit: true
+      // controls: false
     })
     setTimeout(()=>{
       document.getElementById("t").setAttribute("class","shadownone")

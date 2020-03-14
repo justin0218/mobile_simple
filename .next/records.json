@@ -27,21 +27,29 @@
       "static/xMF70aLk219VboQdkWfhE/pages/index.js": 15,
       "static/xMF70aLk219VboQdkWfhE/pages/live.js": 16,
       "static/xMF70aLk219VboQdkWfhE/pages/me.js": 17,
-      "static/xMF70aLk219VboQdkWfhE/pages/message.js": 18
+      "static/xMF70aLk219VboQdkWfhE/pages/message.js": 18,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/_app.js": 2,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/_error.js": 3,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/article.js": 4,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/detail.js": 5,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/index.js": 6,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/live.js": 7,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/me.js": 8,
+      "static/~GKJIwCxrXBHvRKh61UKA/pages/message.js": 9
     },
     "bySource": {},
     "usedIds": [
       0,
       1,
       10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
     ]
   }
 }

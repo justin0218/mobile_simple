@@ -87,7 +87,7 @@
       "publicPath": "static/chunks/commons.b7d1fbb45fe39458f88f.js"
     }
   ],
-  "./bo": [
+  "./bo.js": [
     {
       "id": "0mo+",
       "name": "./node_modules/moment/locale/bo.js",
@@ -1583,7 +1583,7 @@
       "publicPath": "static/chunks/commons.b7d1fbb45fe39458f88f.js"
     }
   ],
-  "../modules/_core": [
+  "../../modules/_core": [
     {
       "id": "WEpk",
       "name": "./node_modules/core-js/library/modules/_core.js",
