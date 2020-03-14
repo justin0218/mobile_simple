@@ -35,6 +35,8 @@ export default class extends React.Component {
             <link rel="stylesheet" href="/static/css/editormd.min.css" />
             <link rel="stylesheet" href="/static/css/global.css" />
             <script src="/static/js/ispc.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+            <script src="//cdn.jsdelivr.net/npm/xgplayer-flv.js/browser/index.js" charset="utf-8"></script>
           </Head>
           <Nav />
           <div id={'t'} className={`shadow`}>
