@@ -1,10 +1,4 @@
 import Layout from '../components/layout'
-import {getTpValue} from '../utils/blog_types'
-import moment from 'moment'
-import {apiHost} from '../utils/config';
-import protobuf from "../proto/blog_pb";
-import axios from 'axios'
-import readStream from '../utils/util'
 
 export default class extends React.Component {
   static async getInitialProps({ req,query,jsonPageRes }) {

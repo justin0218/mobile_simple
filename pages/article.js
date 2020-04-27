@@ -1,10 +1,5 @@
-import Layout from '../components/layout'
-import tps from '../utils/blog_types'
-import {apiHost} from '../utils/config'
-import axios from 'axios'
-import readStream from '../utils/util'
-import protobuf from "../proto/blog_pb";
-import Event from '../utils/emiter';
+import Layout from '../components/layout';
+import * as api from "../apis/blog";
 export default class extends React.Component {
   static async getInitialProps({ req,query,jsonPageRes }) {
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
@@ -17,13 +12,8 @@ export default class extends React.Component {
   }
 
   async loadList(tp,name){
-    let res = await axios.get(`${apiHost}/v1/blog/list?tp=${tp}&name=${name}`,{
-      responseType: 'blob'
-    })
-    let data = await readStream(res.data);
-    let message = protobuf.blogListRes.deserializeBinary(data);
-    data = message.toObject();
-    this.setState({blogList:data.listList})
+    let data = await api.GetBlogList(tp,name)
+    this.setState({blogList:data.blogArticleListList})
   }
 
   async componentDidMount(){
@@ -36,7 +26,7 @@ export default class extends React.Component {
   }
 
   render() {
-    let {blogList,leftHeight} = this.state;
+    let {blogList} = this.state;
     return (
       <Layout title={`文章`}>
         {

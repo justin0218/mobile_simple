@@ -1,10 +1,5 @@
 import Layout from '../components/layout'
-import {getTpValue} from '../utils/blog_types'
-import moment from 'moment'
-import {apiHost} from '../utils/config';
-import protobuf from "../proto/blog_pb";
-import axios from 'axios'
-import readStream from '../utils/util'
+import * as api from '../apis/blog';
 
 export default class extends React.Component {
   static async getInitialProps({ req,query,jsonPageRes }) {
@@ -17,20 +12,10 @@ export default class extends React.Component {
   }
 
   async componentDidMount(){
-    let res = await axios.get(`${apiHost}/v1/blog/detail?id=35`,{
-      responseType: 'blob'
-    })
-    let data = await readStream(res.data);
-    let message = protobuf.detailRes.deserializeBinary(data);
-    data = message.toObject();
-    // console.log(data)
-    let hres = await axios.get(`${apiHost}/tool/file/read?key=${data.htmlTxtUrl}`,{
-      responseType: 'blob'
-    })
-    let hdata = await readStream(hres.data);
-    let hmessage = protobuf.fileReadRes.deserializeBinary(hdata);
-    hdata = hmessage.toObject();
-    this.setState({blogDtail:hdata.txt})
+    let res = await api.GetBlogDetail(35);
+    let data = res.currentArticle;
+    let fileContent = await api.ReadNetFile(data.htmlTxtUrl);
+    this.setState({blogDtail:fileContent.txt});
     setTimeout(()=>{
       document.getElementById("t").setAttribute("class","shadownone")
       document.getElementById("loading").style.display = "none";

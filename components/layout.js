@@ -34,9 +34,8 @@ export default class extends React.Component {
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover" />      
             <link rel="stylesheet" href="/static/css/editormd.min.css" />
             <link rel="stylesheet" href="/static/css/global.css" />
+            <link rel="stylesheet" href="/static/css/loading.css" />
             <script src="/static/js/ispc.js"></script>
-            <script src="//cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
-            <script src="//cdn.jsdelivr.net/npm/xgplayer-hls.js/browser/index.js" charset="utf-8"></script>
           </Head>
           <Nav />
           <div id={'t'} className={`shadow`}>
@@ -53,21 +52,18 @@ export default class extends React.Component {
             {top == 1 && <a href="#" className="cd-top cd-is-visible cd-fade-out">Top</a>}
           </div>
           {/* loading */}
-          <div className="lds-css" id="loading">
-            <div className="lds-gear" style={{width:"100%","height":"100%"}}>
-                <div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div style={{height:12}}></div>
-            <p style={{fontSize:12,textAlign:"center",color:"#ff7f21"}}>Simple</p>
+          <div className="container" id="loading">
+              <div className="loader">
+                <div className="row">
+                  <h3 className="title">Loading...</h3>
+                  <div className="rect"></div>
+                </div>  
+                <div className="row">
+                  <div className="circle one"></div>
+                  <div className="circle-five"></div>
+                  <div className="circle-four"></div>
+                  </div>
+              </div>
           </div>
           <style jsx>{`
             .cd-top.cd-is-visible {

@@ -3760,10 +3760,10 @@ module.exports = __webpack_require__(/*! ./dist/lib/head */ "./node_modules/next
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fprivate%2Fblog-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js!./":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fprivate%2Fblog-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fmy%2Fclient-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js!./":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fmy%2Fclient-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4564,14 +4564,14 @@ module.exports = (__webpack_require__(/*! dll-reference dll_4d62ad301d4c9a40eec7
 
 /***/ }),
 
-/***/ 2:
-/*!***************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fprivate%2Fblog-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
-  \***************************************************************************************************************************************************************************/
+/***/ 1:
+/*!************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fmy%2Fclient-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
+  \************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fprivate%2Fblog-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fprivate%2Fblog-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fmy%2Fclient-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=%2FUsers%2Fjustin%2FDesktop%2Fmy%2Fclient-mobile%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js!./");
 
 
 /***/ }),
@@ -4587,5 +4587,5 @@ module.exports = dll_4d62ad301d4c9a40eec7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]));;
+},[[1,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=_error.js.map

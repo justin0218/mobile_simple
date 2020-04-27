@@ -1,10 +1,8 @@
 import Layout from '../components/layout'
 import {getTpValue} from '../utils/blog_types'
 import moment from 'moment'
-import {apiHost,avatars} from '../utils/config';
-import protobuf from "../proto/blog_pb";
-import axios from 'axios'
-import readStream from '../utils/util'
+import {avatars} from '../utils/config';
+import * as api from "../apis/blog";
 
 export default class extends React.Component {
   static async getInitialProps({ req,query,jsonPageRes }) {
@@ -14,7 +12,11 @@ export default class extends React.Component {
 
   state = {
       blogDtail:"",
-      detailData:{},
+      detailData:{
+        "nextArticle":{},
+        "currentArticle":{},
+        "prevArticle":{}
+      },
       commentsList:[],
       commentTotal:0,
       saytext:"",
@@ -24,32 +26,16 @@ export default class extends React.Component {
 
   async getComments(){
     const {id} = this.props.query
-    let commentRes = await axios.get(`${apiHost}/v1/blog/messageboard/list?blog_id=${id}`,{
-      responseType: 'blob'
-    })
-    let commentData = await readStream(commentRes.data);
-    let commentMessage = protobuf.blogComments.deserializeBinary(commentData);
-    commentMessage = commentMessage.toObject();
-    this.setState({commentsList:commentMessage.listList,commentTotal:commentMessage.total})
+    let commentRes = await api.GetBlogComments(id)
+    this.setState({commentsList:commentRes.blogCommentListList,commentTotal:commentRes.total})
   }
 
   async componentDidMount(){
       const {id} = this.props.query
-      let res = await axios.get(`${apiHost}/v1/blog/detail?id=${id}`,{
-        responseType: 'blob'
-      })
-      let data = await readStream(res.data);
-      let message = protobuf.detailRes.deserializeBinary(data);
-      data = message.toObject();
-      // console.log(data)
-      let hres = await axios.get(`${apiHost}/tool/file/read?key=${data.htmlTxtUrl}`,{
-        responseType: 'blob'
-      })
-      let hdata = await readStream(hres.data);
-      let hmessage = protobuf.fileReadRes.deserializeBinary(hdata);
-      hdata = hmessage.toObject();
+      let res = await api.GetBlogDetail(id);
+      let hres = await api.ReadNetFile(res.currentArticle.htmlTxtUrl);
       await this.getComments();
-      this.setState({blogDtail:hdata.txt,detailData:data})
+      this.setState({blogDtail:hres.txt,detailData:res})
       setTimeout(()=>{
         document.getElementById("t").setAttribute("class","shadownone")
         document.getElementById("loading").style.display = "none";
@@ -62,26 +48,11 @@ export default class extends React.Component {
     if (e && e.keyCode == 13) { //回车键的键值为13
       const {id} = this.props.query
       let {saytext} = this.state;
-      saytext = saytext.replace(/\n/g,"")
-      if(saytext == ""){
-        alert("评论内容不能为空")
-        return
-      }
-      let message = new protobuf.blogComment();
-        message.setContent(saytext);
-        message.setBlogId(id);
-      let bytes = message.serializeBinary();
-      try {
-        let res = await axios.post(`${apiHost}/v1/blog/messageboard/submit`,bytes,{headers: {'Content-Type':'application/octet-stream'}})
+      let res = await api.SubMitComment(saytext,id);
+      if (res.code != 0){
+        alert(res.msg);
+      }else{
         await this.getComments();
-      } catch (error) {
-        if(error == "Error: Request failed with status code 400"){
-          alert("评论内容不能为空")
-        }else if(error == "Error: Request failed with status code 500"){
-          alert("内部出现错误")
-        }else if(error == "Error: Request failed with status code 403"){
-          alert("今天您对改博客的评论已达到上限")
-        }
       }
       this.setState({saytext:""})
     }
@@ -90,42 +61,42 @@ export default class extends React.Component {
   async makeGood(){
     let {detailData} = this.state;
     const {id} = this.props.query
-    let res = await axios.post(`${apiHost}/v1/blog/good/make?blog_id=${id}`)
-    detailData.goodNum++
+    api.MakeGood(id)
+    detailData.currentArticle.goodNum++
     this.setState({detailData})
   }
 
   render() {
-    const {blogDtail,detailData,commentsList,submitDisb,submitTxt,saytext,commentTotal} = this.state
-    
+    const {blogDtail,detailData,commentsList,saytext,commentTotal} = this.state
+    const {currentArticle = {},nextArticle = {},prevArticle = {}} = detailData;
     return (
-      <Layout title={detailData.name}>
+      <Layout title={currentArticle.name}>
           <div style={{background:"#fff",padding: "0 12px"}}>
-            <h3 className="news_title">{detailData.name}</h3>
+            <h3 className="news_title">{currentArticle.name}</h3>
             <div className="bloginfo">
               <ul>
                 <li className="author"></li>
-                <li className="lmname">{getTpValue(detailData.type)}</li>
-                <li className="timer">{moment(detailData.createTime).format("YYYY-MM-DD")}</li>
-                <li className="view">{detailData.view} 人已阅读</li>
+                <li className="lmname">{getTpValue(currentArticle.type)}</li>
+                <li className="timer">{moment(currentArticle.createTime).format("YYYY-MM-DD")}</li>
+                <li className="view">{currentArticle.view} 人已阅读</li>
               </ul>
             </div>
             <div style={{clear:'both'}}></div>
             <div className="news_about">
-              <strong>简介</strong> {detailData.preface}
+              <strong>简介</strong> {currentArticle.preface}
             </div>
             <div dangerouslySetInnerHTML={{__html: blogDtail}} className="markdown-body editormd-preview-container" previewcontainer="true" style={{width:"auto",padding:0}}></div>
             <div className="share" style={{padding: "20px"}}>
              <button className="diggit" onClick={this.makeGood.bind(this)}>
-               <a>很赞哦！</a>(<b>{detailData.goodNum}</b>)
+               <a>很赞哦！</a>(<b>{currentArticle.goodNum}</b>)
              </button>
             </div>
             <div className="nextinfo">
               {
-                detailData.prev ? <p>上一篇：<a href={`/detail?id=${detailData.prev.id}`}>{detailData.prev.name}</a></p>:<p>上一篇：<a href={`/article`}>回到列表</a></p>
+                prevArticle.id ? <p>上一篇：<a href={`/detail?id=${detailData.prevArticle.id}`}>{detailData.prevArticle.name}</a></p>:<p>上一篇：<a href={`/article`}>回到列表</a></p>
               }
               {
-                detailData.next ? <p>下一篇：<a href={`/detail?id=${detailData.next.id}`}>{detailData.next.name}</a></p>:<p>下一篇：<a href={`/article`}>回到列表</a></p>
+                nextArticle.id ? <p>下一篇：<a href={`/detail?id=${detailData.nextArticle.id}`}>{detailData.nextArticle.name}</a></p>:<p>下一篇：<a href={`/article`}>回到列表</a></p>
               } 
             </div>
             <div className="news_pl" id="news_pl">
