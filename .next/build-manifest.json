@@ -1,0 +1,43 @@
+{
+  "devFiles": [
+    "static/development/dll/dll_5da161affe488fec3086.js"
+  ],
+  "pages": {
+    "/_app": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/detail": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/next/dist/pages/_error": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/message": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/chat": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/chatroom": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ]
+  }
+}
