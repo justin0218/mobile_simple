@@ -127,9 +127,6 @@ export default class extends React.Component {
 
           </div>
           <style jsx>{`
-          input{
-            -webkit-appearance: none;
-          }
           .nextinfo a{
             text-decoration: none;
             color: #555;
