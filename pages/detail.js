@@ -229,6 +229,7 @@ export default class extends React.Component {
             cursor: pointer;
             outline: none;
             display: block;
+            border: none;
            }
            .news_about {
                 color: #888888;
